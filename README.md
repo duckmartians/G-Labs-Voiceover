@@ -58,5 +58,3 @@ Settings live in the OS per-user data folder (`%APPDATA%\G-Labs Voiceover` on Wi
 ## Requirements
 
 A **G-Labs account with a paid plan on any tool** (Lite or above), or a valid Voice add-on. Sign in with the Google account linked to G-Labs — the app opens your system browser. See [plans & tools](https://duckmartians.info).
-
-Voice endpoints are delivered by the licence server per session and held in memory only; nothing about them ships inside the app.
