@@ -60,15 +60,3 @@ Settings live in the OS per-user data folder (`%APPDATA%\G-Labs Voiceover` on Wi
 A **G-Labs account with a paid plan on any tool** (Lite or above), or a valid Voice add-on. Sign in with the Google account linked to G-Labs — the app opens your system browser. See [plans & tools](https://duckmartians.info).
 
 Voice endpoints are delivered by the licence server per session and held in memory only; nothing about them ships inside the app.
-
-## Build from source
-
-```bash
-npm run install:all      # root + backend + frontend
-npm run dev              # frontend :5180, backend :3011
-npm run dev:app          # the Electron shell
-
-npm run build:mac        # → release/GLabsVoiceover-<version>-arm64.dmg
-```
-
-Windows: run `setup.bat` once, then `build-exe.bat`.
