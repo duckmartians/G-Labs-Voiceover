@@ -16,6 +16,7 @@ Desktop app that turns a script into a finished voice-over — **two TTS engines
 - **Exports**: merged MP3, SRT, or both in a ZIP. Filenames carry an index, the first words and a timestamp, so nothing ever overwrites an earlier save
 - **Voice preview**: every voice has a bundled sample you can hear before spending anything — multilingual voices carry one per language, native voices one in their own
 - **Proxy pool**: paste proxies in any format (`host:port:user:pass`, `user:pass@host:port`, `socks5://…`, IPv6) into a saved list; CapCut/Edge requests rotate through it round-robin. **Re-check** probes each one, auto-detects its type (HTTP/SOCKS4/SOCKS5) and flags the dead ones — then remove them in one click. Passwords are masked in the list
+- **Webhook API** (opt-in): a local HTTP server that external tools and AI agents can drive — submit a single line or a multi-segment script, poll the task, then download the merged MP3 (plus optional per-segment files and an SRT). Its own auto-generated API key, entitlement-gated, binds to `127.0.0.1` by default. Full guide: [WEBHOOK.md](WEBHOOK.md)
 - **Everything is remembered**: script, segment table, chosen voice, speed, gap, favourites, UI zoom, language and the open tab all survive a relaunch — stored in the OS app-data folder, not localStorage
 - **Whole-UI zoom** (70–140%) in the title bar — real reflow, so zooming out fits more on screen instead of only shrinking text
 - **Generation history**: every run is auto-saved, searchable by content, and reloads into the editor it came from
@@ -32,9 +33,27 @@ Desktop app that turns a script into a finished voice-over — **two TTS engines
 |---|---|
 | ![Proxy](docs/screenshots/04-proxy.png) | ![History](docs/screenshots/05-history.png) |
 
-| Right-to-left (اردو) |
-|---|
-| ![RTL](docs/screenshots/06-rtl-urdu.png) |
+| Right-to-left (اردو) | Webhook API (automation) |
+|---|---|
+| ![RTL](docs/screenshots/06-rtl-urdu.png) | ![Webhook API](docs/screenshots/07-webhook.png) |
+
+## Webhook API — automate it
+
+Enable the **Webhook API** tab and Voiceover runs a small local HTTP server your
+own tools (or an AI agent) can call:
+
+```bash
+curl -X POST http://127.0.0.1:8788/api/tts \
+  -H "X-API-Key: <key from the panel>" -H "Content-Type: application/json" \
+  -d '{"provider":"edge","text":"Xin chào","voice":"vi-VN-HoaiMyNeural","srt":true}'
+# → { "task_id": "…" }  → poll GET /api/status/{id}  → download from /api/files
+```
+
+Submit `text` or a `segments` array, get one merged `master.mp3` (plus per-segment
+files and an SRT on request). Auth is a per-install API key; generation is gated on
+your entitlement; the server binds to `127.0.0.1` unless you open it to the LAN.
+The complete reference — every endpoint, body field and response shape — is in
+**[WEBHOOK.md](WEBHOOK.md)**, written so an AI agent can integrate from it directly.
 
 ## Which engine should I use?
 
@@ -58,3 +77,17 @@ Settings live in the OS per-user data folder (`%APPDATA%\G-Labs Voiceover` on Wi
 ## Requirements
 
 A **G-Labs account with a paid plan on any tool** (Lite or above), or a valid Voice add-on. Sign in with the Google account linked to G-Labs — the app opens your system browser. See [plans & tools](https://duckmartians.info).
+
+Voice endpoints are delivered by the licence server per session and held in memory only; nothing about them ships inside the app.
+
+## Build from source
+
+```bash
+npm run install:all      # root + backend + frontend
+npm run dev              # frontend :5180, backend :3011
+npm run dev:app          # the Electron shell
+
+npm run build:mac        # → release/GLabsVoiceover-<version>-arm64.dmg
+```
+
+Windows: run `setup.bat` once, then `build-exe.bat`.

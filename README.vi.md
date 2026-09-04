@@ -16,6 +16,7 @@
 - **Xuất file**: MP3 đã ghép, SRT, hoặc cả gói ZIP. Tên file có số thứ tự + vài chữ đầu + thời gian, nên không bao giờ ghi đè bản cũ
 - **Nghe thử giọng**: mỗi giọng có mẫu sẵn để nghe trước khi tốn lượt — giọng đa ngôn ngữ có mẫu từng thứ tiếng, giọng bản địa có mẫu tiếng của mình
 - **Kho proxy**: dán proxy đủ định dạng (`host:port:user:pass`, `user:pass@host:port`, `socks5://…`, IPv6) vào danh sách lưu; mỗi lượt gọi CapCut/Edge xoay vòng qua danh sách. **Kiểm tra lại** dò từng proxy, tự nhận diện loại (HTTP/SOCKS4/SOCKS5) và đánh dấu cái hỏng — xoá một nhát. Mật khẩu được che trong danh sách
+- **Webhook API** (tuỳ chọn bật): một máy chủ HTTP cục bộ để công cụ ngoài hoặc AI agent gọi — nộp một đoạn text hoặc cả kịch bản nhiều đoạn, chờ task, rồi tải file MP3 đã ghép (kèm file từng đoạn và SRT nếu cần). Có khoá API riêng tự sinh, chỉ chạy khi tài khoản đủ quyền, mặc định bind `127.0.0.1`. Tài liệu đầy đủ: [WEBHOOK.md](WEBHOOK.md)
 - **Ghi nhớ mọi thứ**: kịch bản, bảng đoạn, giọng đã chọn, tốc độ, khoảng lặng, giọng yêu thích, mức zoom, ngôn ngữ và tab đang mở đều còn nguyên sau khi tắt mở lại — lưu ở thư mục dữ liệu của hệ điều hành, không phải localStorage
 - **Zoom toàn giao diện** (70–140%) ngay trên titlebar — bố cục co giãn thật, thu nhỏ để hiện được nhiều hơn chứ không chỉ làm chữ bé đi
 - **Lịch sử tạo**: mỗi lượt tự lưu, tìm được theo nội dung, nạp lại đúng tab đã tạo
@@ -32,9 +33,27 @@
 |---|---|
 | ![Proxy](docs/screenshots/04-proxy.png) | ![Lịch sử](docs/screenshots/05-history.png) |
 
-| Giao diện phải-sang-trái (اردو) |
-|---|
-| ![RTL](docs/screenshots/06-rtl-urdu.png) |
+| Giao diện phải-sang-trái (اردو) | Webhook API (tự động hoá) |
+|---|---|
+| ![RTL](docs/screenshots/06-rtl-urdu.png) | ![Webhook API](docs/screenshots/07-webhook.png) |
+
+## Webhook API — tự động hoá
+
+Bật tab **Webhook API**, Voiceover chạy một máy chủ HTTP cục bộ nhỏ để công cụ của
+bạn (hoặc một AI agent) gọi:
+
+```bash
+curl -X POST http://127.0.0.1:8788/api/tts \
+  -H "X-API-Key: <khoá lấy trong panel>" -H "Content-Type: application/json" \
+  -d '{"provider":"edge","text":"Xin chào","voice":"vi-VN-HoaiMyNeural","srt":true}'
+# → { "task_id": "…" }  → chờ GET /api/status/{id}  → tải ở /api/files
+```
+
+Nộp `text` hoặc mảng `segments`, nhận một file `master.mp3` đã ghép (kèm file từng
+đoạn và SRT nếu yêu cầu). Xác thực bằng khoá API riêng mỗi máy; chỉ sinh khi tài
+khoản đủ quyền; máy chủ bind `127.0.0.1` trừ khi bạn mở ra mạng LAN. Tài liệu đầy
+đủ — mọi endpoint, trường body và cấu trúc phản hồi — nằm ở **[WEBHOOK.md](WEBHOOK.md)**,
+viết để một AI agent đọc là tích hợp được ngay.
 
 ## Nên dùng bộ máy nào?
 
@@ -58,3 +77,17 @@ Thiết lập lưu ở thư mục dữ liệu người dùng của hệ điều 
 ## Yêu cầu tài khoản
 
 Cần **tài khoản G-Labs đã trả phí bất kỳ công cụ nào** (gói Lite trở lên), hoặc có add-on Voice còn hạn. Đăng nhập bằng tài khoản Google đã liên kết với G-Labs — app mở trình duyệt hệ thống. Xem [các gói & công cụ](https://duckmartians.info).
+
+Cấu hình endpoint giọng do máy chủ bản quyền giao theo từng phiên và chỉ giữ trong bộ nhớ; không có gì về chúng nằm sẵn trong app.
+
+## Build từ mã nguồn
+
+```bash
+npm run install:all      # root + backend + frontend
+npm run dev              # frontend :5180, backend :3011
+npm run dev:app          # chạy vỏ Electron
+
+npm run build:mac        # → release/GLabsVoiceover-<phiên-bản>-arm64.dmg
+```
+
+Windows: chạy `setup.bat` một lần, rồi `build-exe.bat`.
