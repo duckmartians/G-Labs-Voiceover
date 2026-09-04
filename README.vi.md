@@ -77,17 +77,3 @@ Thiết lập lưu ở thư mục dữ liệu người dùng của hệ điều 
 ## Yêu cầu tài khoản
 
 Cần **tài khoản G-Labs đã trả phí bất kỳ công cụ nào** (gói Lite trở lên), hoặc có add-on Voice còn hạn. Đăng nhập bằng tài khoản Google đã liên kết với G-Labs — app mở trình duyệt hệ thống. Xem [các gói & công cụ](https://duckmartians.info).
-
-Cấu hình endpoint giọng do máy chủ bản quyền giao theo từng phiên và chỉ giữ trong bộ nhớ; không có gì về chúng nằm sẵn trong app.
-
-## Build từ mã nguồn
-
-```bash
-npm run install:all      # root + backend + frontend
-npm run dev              # frontend :5180, backend :3011
-npm run dev:app          # chạy vỏ Electron
-
-npm run build:mac        # → release/GLabsVoiceover-<phiên-bản>-arm64.dmg
-```
-
-Windows: chạy `setup.bat` một lần, rồi `build-exe.bat`.
