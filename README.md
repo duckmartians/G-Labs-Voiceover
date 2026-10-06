@@ -1,46 +1,144 @@
-# G-Labs Voiceover
+<h1 align="center">G-Labs Voiceover</h1>
 
-**English** | [Tiếng Việt](README.vi.md)
+<p align="center"><b>A desktop app that turns a script into a finished voice-over — CapCut voices and 322 Microsoft Edge voices in one place, exported as one merged MP3 with matching SRT subtitles.</b></p>
 
-Desktop app that turns a script into a finished voice-over — **two TTS engines in one place**: CapCut's voices and Microsoft Edge read-aloud (**322 neural voices across 142 locales**). Paste text, pick a voice, get one merged MP3 plus matching SRT subtitles. ffmpeg ships inside; nothing else to install.
+<p align="center">
+  <b>English</b> ·
+  <a href="README.vi.md">Tiếng Việt</a>
+</p>
 
-![Main window](docs/screenshots/01-main.png)
+<p align="center">
+  <a href="https://github.com/duckmartians/G-Labs-Voiceover/releases/latest"><img alt="Download for Windows" src="https://img.shields.io/badge/Download-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white"></a>&nbsp;
+  <a href="https://github.com/duckmartians/G-Labs-Voiceover/releases/latest"><img alt="Download for macOS (Apple Silicon)" src="https://img.shields.io/badge/Download-macOS%20Apple%20Silicon-000000?style=for-the-badge&logo=apple&logoColor=white"></a>
+</p>
+
+---
+
+## Install
+
+### Step 1 — Choose the right build
+
+Download the latest version from **[Releases](https://github.com/duckmartians/G-Labs-Voiceover/releases/latest)** and pick the file for your machine:
+
+| Your machine | Download file | Note |
+|---|---|---|
+| 🪟 **Windows (64-bit)** | `GLabsVoiceover-<version>-setup.exe` | Installer |
+| 🍎 **Mac with Apple chip (M1/M2/M3/M4)** | `GLabsVoiceover-<version>-arm64.dmg` | Apple Silicon only |
+
+> There is **no Intel Mac build** — the `arm64` file will not open on an Intel Mac.
+
+### Step 2 — Install
+
+<details open>
+<summary><b>🪟 On Windows</b></summary>
+
+1. Open the **`GLabsVoiceover-<version>-setup.exe`** file you downloaded.
+2. If a **"Windows protected your PC"** box appears (SmartScreen): click **More info** → **Run anyway**. *(The app is not code-signed with a Microsoft certificate, so Windows warns about it — it is not a virus.)*
+3. Follow the installer — you can choose the install folder. It installs for your user account and creates **Start Menu** and **Desktop** shortcuts.
+4. Open **G-Labs Voiceover** from the Start Menu or the Desktop shortcut.
+
+</details>
+
+<details open>
+<summary><b>🍎 On macOS</b></summary>
+
+1. Open the **`.dmg`** you downloaded, then **drag the G-Labs Voiceover icon onto the Applications folder**.
+2. In **Applications**, **right-click** (or Control-click) **G-Labs Voiceover** → **Open** → click **Open** again in the confirmation box. *(The app is not signed by Apple, so you must open it this way the **first time**; after that it opens like any other app.)*
+3. If macOS says the app **"is damaged / can't be opened"** or there is no Open button, open **Terminal**, paste this and press Enter:
+   ```bash
+   xattr -dr com.apple.quarantine "/Applications/G-Labs Voiceover.app"
+   ```
+   Then open the app again.
+
+</details>
+
+### Step 3 — Sign in (access comes with your G-Labs plan)
+
+**Voiceover is not sold on its own.** It unlocks for a **G-Labs account with an active paid plan on any G-Labs tool (Lite or higher)**, or an active **G-Labs Voice Studio** (Voice add-on) subscription. The free Basic plan does not unlock it. See [plans & tools](https://duckmartians.info).
+
+Click **Sign in with Google** and use the Google account linked to your G-Labs plan — the app opens your system browser to sign in. The license server confirms your plan each time the app opens and keeps re-checking it while the app runs; when the underlying plan expires, the app locks again. The voice-service configuration is delivered only to an entitled session, so **both engines (CapCut and Edge) need an eligible account**.
+
+The app **updates itself** from GitHub Releases: on Windows it downloads the new installer and runs it; on macOS it downloads the new `.dmg` and opens it for you to drag into Applications.
+
+---
+
+## First run
+
+1. **Open the app and sign in with Google** using a G-Labs account on a paid plan.
+2. **Open the Text to speech tab** and paste your script — or **Import file** to load a `.txt` or `.srt`.
+3. **Choose how to split** (per sentence, per line, or smart-pack by character count), pick the **CapCut** or **Microsoft Edge** engine and a **voice**.
+4. Press **Generate all**. Listen to each segment and regenerate any you don't like.
+5. Adjust **speed** and the **pause** between segments if needed, then **Export audio** (MP3), **Export subtitles** (SRT) or **Export bundle** (ZIP with both).
+
+---
 
 ## Features
 
-- **Two engines, one workflow**: switch between **CapCut** and **Microsoft Edge** without changing anything else — same table, same params, same exports. Edge is free and has no quota, so it doubles as the pressure valve when CapCut throttles
-- **Sentence-aware splitting**: one segment per sentence, per line, or **smart-pack** to an N-character budget — every segment generates, replays, regenerates and downloads on its own
-- **Import .txt / .srt**: an SRT import keeps each cue's timing, and **"fit to subtitle"** speeds each line (never slows, capped at 1.8×) to land on its original cue — the merged audio matches the subtitle timeline
-- **Dialogue mode**: write `<Name> line` per line, assign a voice per character, and the whole conversation generates as one task with per-block voices; export keeps the speaker name in the SRT
-- **Speed & gap without regenerating**: the speed and silence-gap sliders re-merge locally — no new API calls, no quota spent
-- **Exports**: merged MP3, SRT, or both in a ZIP. Filenames carry an index, the first words and a timestamp, so nothing ever overwrites an earlier save
-- **Voice preview**: every voice has a bundled sample you can hear before spending anything — multilingual voices carry one per language, native voices one in their own
-- **Proxy pool**: paste proxies in any format (`host:port:user:pass`, `user:pass@host:port`, `socks5://…`, IPv6) into a saved list; CapCut/Edge requests rotate through it round-robin. **Re-check** probes each one, auto-detects its type (HTTP/SOCKS4/SOCKS5) and flags the dead ones — then remove them in one click. Passwords are masked in the list
-- **Webhook API** (opt-in): a local HTTP server that external tools and AI agents can drive — submit a single line or a multi-segment script, poll the task, then download the merged MP3 (plus optional per-segment files and an SRT). Its own auto-generated API key, entitlement-gated, binds to `127.0.0.1` by default. Full guide: [WEBHOOK.md](WEBHOOK.md)
-- **Everything is remembered**: script, segment table, chosen voice, speed, gap, favourites, UI zoom, language and the open tab all survive a relaunch — stored in the OS app-data folder, not localStorage
-- **Whole-UI zoom** (70–140%) in the title bar — real reflow, so zooming out fits more on screen instead of only shrinking text
-- **Generation history**: every run is auto-saved, searchable by content, and reloads into the editor it came from
-- **11 languages**: Tiếng Việt, English, हिन्दी, Türkçe, Português, 简体中文, اردو (RTL), বাংলা, Русский, Español, ไทย
-- **App auto-update** from GitHub Releases, in-app
+![Main window](docs/screenshots/01-main.png)
 
-## Screenshots
+- **Two engines, one workflow** — switch between **CapCut** and **Microsoft Edge** without changing anything else: same segment table, same settings, same exports. Edge has no quota, so it also serves as the fallback when CapCut throttles.
+- **Sentence-aware splitting** — one segment per sentence, per line, or **smart-pack** to a character budget; every segment generates, replays, regenerates and downloads on its own.
+- **Import .txt / .srt** — an SRT import keeps each cue's timing, and **"fit to subtitle timing"** speeds up any line longer than its cue (speed-up only, capped at 1.8×) so the merged audio follows the subtitle timeline.
+- **Dialogue mode** — write `<Name> line` per line, assign a voice per character, and the whole conversation generates in one run; the SRT keeps the speaker names.
+- **Speed & pause without regenerating** — the speed and silence-gap sliders re-merge locally: no new service calls, no quota spent.
+- **Exports** — merged MP3, SRT, or both in a ZIP. File names carry an index, the first words and a timestamp, so a new export never overwrites an earlier one.
+- **Voice preview** — every voice has a bundled sample to hear before generating; multilingual voices have one per language.
+- **Proxy pool** — paste proxies in many formats; CapCut/Edge requests rotate through them, with a re-check that detects the proxy type and flags dead ones.
+- **Webhook API** (opt-in) — a local HTTP server that scripts and AI agents can drive (see below).
+- **Remembers your work** — script draft, segment table, chosen voice, speed, pause, favourites, UI zoom, language and the open tab survive a relaunch.
+- **Whole-UI zoom** (70–140%) in the title bar, with real reflow.
+- **ffmpeg bundled** — nothing else to install, no GPU needed.
+- **11 interface languages** — Tiếng Việt, English, हिन्दी, Türkçe, Português, 简体中文, اردو (right-to-left), বাংলা, Русский, Español, ไทย.
 
-| Dialogue — a voice per character | Voice catalog (322 Edge voices) |
-|---|---|
-| ![Dialogue](docs/screenshots/02-dialogue.png) | ![Voices](docs/screenshots/03-voices.png) |
+### Which engine should I use?
 
-| Proxy pool (auto-detect, masked passwords) | Generation history |
-|---|---|
-| ![Proxy](docs/screenshots/04-proxy.png) | ![History](docs/screenshots/05-history.png) |
+| | CapCut | Microsoft Edge |
+|---|---|---|
+| Voices | 121 | **322** across 142 languages/locales |
+| Quota | limited per session | none |
+| Best for | the signature CapCut sound | volume work, rare languages |
 
-| Right-to-left (اردو) | Webhook API (automation) |
-|---|---|
-| ![RTL](docs/screenshots/06-rtl-urdu.png) | ![Webhook API](docs/screenshots/07-webhook.png) |
+Some CapCut voices are one **multilingual** model rather than a native speaker — they carry a 🌐 marker because they read with a slight accent outside their primary language. Native voices sound natural; the marker lets you choose knowingly.
 
-## Webhook API — automate it
+---
 
-Enable the **Webhook API** tab and Voiceover runs a small local HTTP server your
-own tools (or an AI agent) can call:
+## Pages
+
+### 🔊 Text to speech
+
+![Text to speech](docs/screenshots/01-main.png)
+
+The main workspace. Paste or import a script, choose the split mode, engine and voice, then **Generate all**. Each row of the segment table can be played, regenerated and downloaded on its own. With an imported SRT, turn on **fit to subtitle timing** to keep every line on its original cue. The **Play all & export** panel plays the merged result and exports MP3, SRT or a ZIP bundle.
+
+### 💬 Dialogue
+
+![Dialogue](docs/screenshots/02-dialogue.png)
+
+Write a conversation as `<Name> line`, one per line, and assign a voice to each character. The whole dialogue is generated in one run with a different voice per block, and the exported SRT keeps each speaker's name.
+
+### 🎙 Voices
+
+![Voices](docs/screenshots/03-voices.png)
+
+The voice catalog — 322 Edge voices and 121 CapCut voices. Preview each voice from its bundled sample and mark favourites; multilingual CapCut voices carry the 🌐 marker.
+
+### 🕘 History
+
+![History](docs/screenshots/05-history.png)
+
+Every generation is saved automatically for the current session, searchable by content, and reloads into the tab it came from.
+
+### ⚙️ Settings — proxy pool
+
+![Proxy pool](docs/screenshots/04-proxy.png)
+
+Paste proxies in any format (`host:port:user:pass`, `user:pass@host:port`, `socks5://…`, IPv6) into a saved list; CapCut/Edge requests rotate through it round-robin. **Re-check** probes each proxy, auto-detects its type (HTTP / SOCKS4 / SOCKS5) and flags the dead ones so you can remove them in one click. Passwords are masked in the list.
+
+### 🌐 Webhook API
+
+![Webhook API](docs/screenshots/07-webhook.png)
+
+Enable the **Webhook API** tab and Voiceover runs a small local HTTP server (default `127.0.0.1:8788`) that your own tools — or an AI agent — can call:
 
 ```bash
 curl -X POST http://127.0.0.1:8788/api/tts \
@@ -49,31 +147,39 @@ curl -X POST http://127.0.0.1:8788/api/tts \
 # → { "task_id": "…" }  → poll GET /api/status/{id}  → download from /api/files
 ```
 
-Submit `text` or a `segments` array, get one merged `master.mp3` (plus per-segment
-files and an SRT on request). Auth is a per-install API key; generation is gated on
-your entitlement; the server binds to `127.0.0.1` unless you open it to the LAN.
-The complete reference — every endpoint, body field and response shape — is in
-**[WEBHOOK.md](WEBHOOK.md)**, written so an AI agent can integrate from it directly.
+Submit `text` or a `segments` array and get one merged `master.mp3` (plus per-segment files and an SRT on request). Auth is a per-install API key generated by the app; generation only runs while your account is entitled; the server binds to `127.0.0.1` unless you open it to your LAN. The complete reference — every endpoint, body field and response shape — is in **[WEBHOOK.md](WEBHOOK.md)**, written so an AI agent can integrate from it directly.
 
-## Which engine should I use?
+### 🌍 Right-to-left interface
 
-| | CapCut | Microsoft Edge |
+![Urdu interface](docs/screenshots/06-rtl-urdu.png)
+
+The interface switches between 11 languages; Urdu (اردو) uses a full right-to-left layout.
+
+---
+
+## Where your data lives
+
+| What | macOS | Windows |
 |---|---|---|
-| Voices | 121 | **322** across 142 locales |
-| Quota | limited per window | none |
-| Best for | CapCut-native timbre | volume work, rare languages |
+| Settings, script draft, proxy list, webhook key (`prefs.json`), sign-in session and device ID | `~/Library/Application Support/G-Labs Voiceover` | `%APPDATA%\G-Labs Voiceover` |
+| Webhook output files | `$TMPDIR/voiceover-webhook-files` | `%TEMP%\voiceover-webhook-files` |
 
-Some CapCut voices are one **multilingual** model rather than a native speaker — they carry a 🌐 marker, because on a non-primary language they read with a slight accent. Native voices sound natural; the marker lets you pick knowingly.
+Your text is sent to the CapCut or Microsoft Edge voice service (through your proxies if configured) to be spoken. The G-Labs license server is used only to sign in and check access.
 
-## Install
+---
 
-Grab the latest from [Releases](https://github.com/duckmartians/G-Labs-Voiceover/releases):
+## Troubleshooting
 
-- **Windows**: `GLabsVoiceover-<version>-setup.exe`
-- **macOS (Apple Silicon)**: `GLabsVoiceover-<version>-arm64.dmg` — unsigned; first open: right-click → Open, or `xattr -dr com.apple.quarantine "/Applications/G-Labs Voiceover.app"`
+**"Account not eligible" after signing in** — the account has no active paid G-Labs plan (Lite or higher) or Voice add-on. Buy or renew a plan, then press **Try again**.
 
-Settings live in the OS per-user data folder (`%APPDATA%\G-Labs Voiceover` on Windows, `~/Library/Application Support/G-Labs Voiceover` on macOS).
+**"Can't reach the server"** — the app could not contact the license server. Check your connection and press **Try again**.
 
-## Requirements
+**"Device limit reached for this account"** — the account has reached the number of devices the license server allows.
 
-A **G-Labs account with a paid plan on any tool** (Lite or above), or a valid Voice add-on. Sign in with the Google account linked to G-Labs — the app opens your system browser. See [plans & tools](https://duckmartians.info).
+**CapCut stops generating or says the quota is used up** — CapCut limits requests per session. Switch the engine to **Microsoft Edge** (no quota), or add proxies in **Settings**.
+
+**Windows blocks it with "Windows protected your PC"** — click **More info → Run anyway**. The app is not code-signed, so Windows warns about it; it is not a virus.
+
+**macOS says the app is damaged / can't be opened** — it is not signed by Apple. Right-click → **Open** the first time, or run `xattr -dr com.apple.quarantine "/Applications/G-Labs Voiceover.app"`.
+
+**An update didn't install** — download the latest version manually from [Releases](https://github.com/duckmartians/G-Labs-Voiceover/releases/latest).
