@@ -1,4 +1,4 @@
-# G-Labs Voiceover — Webhook API Integration Guide
+# G-Labs Voiceover - Webhook API Integration Guide
 
 A guide for automating **G-Labs Voiceover** over its local HTTP API. Written to be
 read by an AI agent or a developer: every endpoint, request body, response shape,
@@ -10,8 +10,8 @@ and the full async workflow are specified with copy-paste examples.
 
 G-Labs Voiceover turns text into natural voice-over using two engines:
 
-- **`edge`** — Microsoft Edge read-aloud neural voices (~322 voices, many locales).
-- **`capcut`** — CapCut TTS voices (~121 voices).
+- **`edge`** - Microsoft Edge read-aloud neural voices (~322 voices, many locales).
+- **`capcut`** - CapCut TTS voices (~121 voices).
 
 When you enable the **Webhook API** tab in the app, Voiceover starts a **separate
 local HTTP server** (default `http://127.0.0.1:8788`) that you drive from your own
@@ -66,14 +66,14 @@ Rotating it invalidates the old key immediately. A missing or wrong key → `401
 | `GET`  | `/api/files/{name}` | ❌ | Download a generated audio / `.srt` file |
 | `GET`  | `/api/tasks` | ✅ | List the 50 most recent tasks |
 
-Base URL is `http://<host>:<port>` — default `http://127.0.0.1:8788`. The examples
+Base URL is `http://<host>:<port>` - default `http://127.0.0.1:8788`. The examples
 below assume that default.
 
 ---
 
 ## 4. The async workflow (step by step)
 
-### Step 1 — Health check (optional)
+### Step 1 - Health check (optional)
 
 ```bash
 curl http://127.0.0.1:8788/api/health
@@ -84,7 +84,7 @@ curl http://127.0.0.1:8788/api/health
 If `entitled` is `false`, generation will be refused with `403`; ask the user to
 sign in with an entitled account in the app.
 
-### Step 2 — Discover voices
+### Step 2 - Discover voices
 
 ```bash
 curl http://127.0.0.1:8788/api/voices -H "X-API-Key: <key>"
@@ -99,10 +99,10 @@ curl http://127.0.0.1:8788/api/voices -H "X-API-Key: <key>"
 }
 ```
 Use a voice's **`id`** as the `voice` field when you submit. For CapCut you may also
-pass the human display name (e.g. `"Mai"`) — the server resolves it. An unknown
+pass the human display name (e.g. `"Mai"`) - the server resolves it. An unknown
 voice makes the task fail with a clear error, so pick from this list.
 
-### Step 3 — Submit a job
+### Step 3 - Submit a job
 
 `POST /api/tts` with a JSON body (see §5). The response is **HTTP 202**:
 
@@ -120,12 +120,12 @@ curl -X POST http://127.0.0.1:8788/api/tts \
 }
 ```
 
-### Step 4 — Poll status
+### Step 4 - Poll status
 
 ```bash
 curl http://127.0.0.1:8788/api/status/7ea17bc6a18f -H "X-API-Key: <key>"
 ```
-`status` goes `pending` → `running` → `completed` (or `failed`). Poll every ~1–2 s.
+`status` goes `pending` → `running` → `completed` (or `failed`). Poll every ~1-2 s.
 
 Completed:
 ```json
@@ -143,7 +143,7 @@ Failed:
 { "task_id": "7ea17bc6a18f", "status": "failed", "error": "Edge không tạo được audio nào. Lý do: …" }
 ```
 
-### Step 5 — Download the files
+### Step 5 - Download the files
 
 Every result carries a ready-to-use `url`. `GET` it (no API key needed):
 
@@ -153,19 +153,19 @@ curl http://127.0.0.1:8788/api/files/7ea17bc6a18f_master.mp3 -o master.mp3
 
 ---
 
-## 5. Request body — `POST /api/tts`
+## 5. Request body - `POST /api/tts`
 
 | Field | Type | Required | Default | Notes |
 | --- | --- | :---: | --- | --- |
-| `provider` | string | — | `"edge"` | `"edge"` or `"capcut"`. |
-| `text` | string | one of | — | A single string. Use this **or** `segments`. |
-| `segments` | array | one of | — | `[{ "text": "...", "voice": "..." }]` — one clip per item, merged in order. |
-| `voice` | string | ✅* | — | Voice `id` from `GET /api/voices`. Required for `text`; per-item `voice` overrides it inside `segments`. |
-| `lang` | string | — | auto | Locale override, e.g. `"vi-VN"`. |
-| `speed` | number | — | `1.0` | Playback speed, `0.5`–`3.0` (pitch preserved). |
-| `gapMs` | number | — | `0` | Silence between segments in ms, `0`–`5000`. |
-| `srt` | boolean | — | `false` | Also produce a `.srt` subtitle file with timings. |
-| `perSegment` | boolean | — | `false` | Also return each segment as its own `.mp3`. |
+| `provider` | string | - | `"edge"` | `"edge"` or `"capcut"`. |
+| `text` | string | one of | - | A single string. Use this **or** `segments`. |
+| `segments` | array | one of | - | `[{ "text": "...", "voice": "..." }]` - one clip per item, merged in order. |
+| `voice` | string | ✅* | - | Voice `id` from `GET /api/voices`. Required for `text`; per-item `voice` overrides it inside `segments`. |
+| `lang` | string | - | auto | Locale override, e.g. `"vi-VN"`. |
+| `speed` | number | - | `1.0` | Playback speed, `0.5`-`3.0` (pitch preserved). |
+| `gapMs` | number | - | `0` | Silence between segments in ms, `0`-`5000`. |
+| `srt` | boolean | - | `false` | Also produce a `.srt` subtitle file with timings. |
+| `perSegment` | boolean | - | `false` | Also return each segment as its own `.mp3`. |
 
 \* `voice` is required when using `text`. With `segments`, give each item a `voice`
 (or a top-level `voice` as the fallback for all of them).
@@ -215,7 +215,7 @@ what you need soon after completion; don't rely on them persisting across restar
 | `200` | Any successful `GET`. |
 | `400` | `POST /api/tts` with neither `text` nor a non-empty `segments`. |
 | `401` | Missing / wrong API key on an authed endpoint. |
-| `403` | Account not entitled — generation refused. |
+| `403` | Account not entitled - generation refused. |
 | `404` | Unknown `task_id` or missing file. |
 
 Task-level failures return HTTP `200` on `/api/status` with `status: "failed"` and a
@@ -262,9 +262,9 @@ echo "$S" | python3 -c "import sys,json;[print(f['url']) for f in json.load(sys.
 - **One concept per call.** Submit is fire-and-forget; the audio is ready only after
   `status` is `completed`. Never treat the `202` body as the result.
 - **Batch as segments.** To narrate many lines, send them as one `segments` array in
-  a single `POST /api/tts` rather than many separate jobs — you get one merged
+  a single `POST /api/tts` rather than many separate jobs - you get one merged
   `master.mp3` (and, with `srt`, aligned subtitles).
 - **Handle 403.** It means the human needs to sign in with an entitled account in the
   app; there is no API-side workaround.
 - **The server may be off.** If requests fail to connect, the user has not enabled
-  the Webhook API tab, or bound it to a different host/port — ask them to check.
+  the Webhook API tab, or bound it to a different host/port - ask them to check.
