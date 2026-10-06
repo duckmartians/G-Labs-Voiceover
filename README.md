@@ -22,8 +22,8 @@ Download the latest version from **[Releases](https://github.com/duckmartians/G-
 
 | Your machine | Download file | Note |
 |---|---|---|
-| 🪟 **Windows (64-bit)** | `GLabsVoiceover-<version>-setup.exe` | Installer |
-| 🍎 **Mac with Apple chip (M1/M2/M3/M4)** | `GLabsVoiceover-<version>-arm64.dmg` | Apple Silicon only |
+| 🪟 **Windows (64-bit)** | [`GLabsVoiceover-<version>-setup.exe`](https://github.com/duckmartians/G-Labs-Voiceover/releases/latest) | Installer |
+| 🍎 **Mac with Apple chip (M1/M2/M3/M4)** | [`GLabsVoiceover-<version>-arm64.dmg`](https://github.com/duckmartians/G-Labs-Voiceover/releases/latest) | Apple Silicon only |
 
 > There is **no Intel Mac build** — the `arm64` file will not open on an Intel Mac.
 

@@ -22,8 +22,8 @@ Tải bản mới nhất từ **[Releases](https://github.com/duckmartians/G-Lab
 
 | Máy của bạn | Tải tệp | Ghi chú |
 |---|---|---|
-| 🪟 **Windows (64-bit)** | `GLabsVoiceover-<phiên-bản>-setup.exe` | Bộ cài đặt |
-| 🍎 **Mac chip Apple (M1/M2/M3/M4)** | `GLabsVoiceover-<phiên-bản>-arm64.dmg` | Chỉ cho Apple Silicon |
+| 🪟 **Windows (64-bit)** | [`GLabsVoiceover-<phiên-bản>-setup.exe`](https://github.com/duckmartians/G-Labs-Voiceover/releases/latest) | Bộ cài đặt |
+| 🍎 **Mac chip Apple (M1/M2/M3/M4)** | [`GLabsVoiceover-<phiên-bản>-arm64.dmg`](https://github.com/duckmartians/G-Labs-Voiceover/releases/latest) | Chỉ cho Apple Silicon |
 
 > **Không có bản cho Mac chip Intel** — tệp `arm64` sẽ không mở được trên máy Intel.
 
