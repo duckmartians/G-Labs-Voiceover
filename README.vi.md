@@ -54,7 +54,7 @@ Tải bản mới nhất từ **[Releases](https://github.com/duckmartians/G-Lab
 
 ### Bước 3 - Đăng nhập (quyền dùng đi kèm gói G-Labs)
 
-**Voiceover không bán riêng.** App mở khoá cho **tài khoản của bạn đang có gói trả phí ở bất kỳ công cụ G-Labs nào (từ gói Lite trở lên)**, hoặc có gói **G-Labs Voice Studio** (add-on Voice) còn hạn. Gói Basic miễn phí không mở được. Xem [các gói & công cụ](https://duckmartians.info).
+**Voiceover không bán riêng.** App mở khoá cho **tài khoản của bạn có bất kỳ gói trả phí nào còn hạn**: G-Labs Studio, Auto Flow / Auto Vibes (từ gói Lite trở lên), **G-Labs Voice Studio**, **Suno Downloader** hay **Flow Music Automation**. Chỉ có gói Basic miễn phí không mở được. Xem [các gói & công cụ](https://duckmartians.info).
 
 Bấm **Đăng nhập với Google** bằng tài khoản Google đã liên kết với gói G-Labs - app mở trình duyệt hệ thống để đăng nhập. Máy chủ giấy phép xác nhận gói mỗi lần mở app và tiếp tục kiểm tra lại trong lúc app chạy; khi gói gốc hết hạn, app khoá lại. Cấu hình dịch vụ giọng chỉ được gửi cho phiên đủ quyền, nên **cả hai bộ máy (CapCut và Edge) đều cần tài khoản đủ điều kiện**.
 
@@ -170,7 +170,7 @@ Văn bản của bạn được gửi tới dịch vụ giọng CapCut hoặc Mi
 
 ## Khắc phục sự cố
 
-**"Tài khoản chưa đủ điều kiện" sau khi đăng nhập** - tài khoản chưa có gói G-Labs trả phí còn hạn (từ Lite trở lên) hoặc add-on Voice. Mua hoặc gia hạn gói rồi bấm **Thử lại**.
+**"Tài khoản chưa đủ điều kiện" sau khi đăng nhập** - tài khoản chưa có gói trả phí nào còn hạn. Mua hoặc gia hạn gói rồi bấm **Thử lại**.
 
 **"Không kết nối được máy chủ"** - app chưa liên hệ được máy chủ giấy phép. Kiểm tra mạng rồi bấm **Thử lại**.
 

@@ -54,7 +54,7 @@ Download the latest version from **[Releases](https://github.com/duckmartians/G-
 
 ### Step 3 - Sign in (access comes with your G-Labs plan)
 
-**Voiceover is not sold on its own.** It unlocks for **your account with an active paid plan on any G-Labs tool (Lite or higher)**, or an active **G-Labs Voice Studio** (Voice add-on) subscription. The free Basic plan does not unlock it. See [plans & tools](https://duckmartians.info).
+**Voiceover is not sold on its own.** It unlocks for **your account with any active paid plan**: G-Labs Studio, Auto Flow / Auto Vibes (Lite or higher), **G-Labs Voice Studio**, **Suno Downloader** or **Flow Music Automation**. The free Basic plan alone does not unlock it. See [plans & tools](https://duckmartians.info).
 
 Click **Sign in with Google** and use the Google account linked to your G-Labs plan - the app opens your system browser to sign in. The license server confirms your plan each time the app opens and keeps re-checking it while the app runs; when the underlying plan expires, the app locks again. The voice-service configuration is delivered only to an entitled session, so **both engines (CapCut and Edge) need an eligible account**.
 
@@ -170,7 +170,7 @@ Your text is sent to the CapCut or Microsoft Edge voice service (through your pr
 
 ## Troubleshooting
 
-**"Account not eligible" after signing in** - the account has no active paid G-Labs plan (Lite or higher) or Voice add-on. Buy or renew a plan, then press **Try again**.
+**"Account not eligible" after signing in** - the account has no active paid plan of any kind. Buy or renew a plan, then press **Try again**.
 
 **"Can't reach the server"** - the app could not contact the license server. Check your connection and press **Try again**.
 
