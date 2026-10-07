@@ -54,7 +54,7 @@ Download the latest version from **[Releases](https://github.com/duckmartians/G-
 
 ### Step 3 - Sign in (access comes with your G-Labs plan)
 
-**Voiceover is not sold on its own.** It unlocks for a **G-Labs account with an active paid plan on any G-Labs tool (Lite or higher)**, or an active **G-Labs Voice Studio** (Voice add-on) subscription. The free Basic plan does not unlock it. See [plans & tools](https://duckmartians.info).
+**Voiceover is not sold on its own.** It unlocks for **your account with an active paid plan on any G-Labs tool (Lite or higher)**, or an active **G-Labs Voice Studio** (Voice add-on) subscription. The free Basic plan does not unlock it. See [plans & tools](https://duckmartians.info).
 
 Click **Sign in with Google** and use the Google account linked to your G-Labs plan - the app opens your system browser to sign in. The license server confirms your plan each time the app opens and keeps re-checking it while the app runs; when the underlying plan expires, the app locks again. The voice-service configuration is delivered only to an entitled session, so **both engines (CapCut and Edge) need an eligible account**.
 
@@ -64,7 +64,7 @@ The app **updates itself** from GitHub Releases: on Windows it downloads the new
 
 ## First run
 
-1. **Open the app and sign in with Google** using a G-Labs account on a paid plan.
+1. **Open the app and sign in with Google** using your account on a paid plan.
 2. **Open the Text to speech tab** and paste your script - or **Import file** to load a `.txt` or `.srt`.
 3. **Choose how to split** (per sentence, per line, or smart-pack by character count), pick the **CapCut** or **Microsoft Edge** engine and a **voice**.
 4. Press **Generate all**. Listen to each segment and regenerate any you don't like.

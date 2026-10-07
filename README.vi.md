@@ -54,7 +54,7 @@ Tải bản mới nhất từ **[Releases](https://github.com/duckmartians/G-Lab
 
 ### Bước 3 - Đăng nhập (quyền dùng đi kèm gói G-Labs)
 
-**Voiceover không bán riêng.** App mở khoá cho **tài khoản G-Labs đang có gói trả phí ở bất kỳ công cụ G-Labs nào (từ gói Lite trở lên)**, hoặc có gói **G-Labs Voice Studio** (add-on Voice) còn hạn. Gói Basic miễn phí không mở được. Xem [các gói & công cụ](https://duckmartians.info).
+**Voiceover không bán riêng.** App mở khoá cho **tài khoản của bạn đang có gói trả phí ở bất kỳ công cụ G-Labs nào (từ gói Lite trở lên)**, hoặc có gói **G-Labs Voice Studio** (add-on Voice) còn hạn. Gói Basic miễn phí không mở được. Xem [các gói & công cụ](https://duckmartians.info).
 
 Bấm **Đăng nhập với Google** bằng tài khoản Google đã liên kết với gói G-Labs - app mở trình duyệt hệ thống để đăng nhập. Máy chủ giấy phép xác nhận gói mỗi lần mở app và tiếp tục kiểm tra lại trong lúc app chạy; khi gói gốc hết hạn, app khoá lại. Cấu hình dịch vụ giọng chỉ được gửi cho phiên đủ quyền, nên **cả hai bộ máy (CapCut và Edge) đều cần tài khoản đủ điều kiện**.
 
@@ -64,7 +64,7 @@ Bấm **Đăng nhập với Google** bằng tài khoản Google đã liên kết
 
 ## Lần chạy đầu tiên
 
-1. **Mở app và đăng nhập bằng Google** với tài khoản G-Labs có gói trả phí.
+1. **Mở app và đăng nhập bằng Google** với tài khoản của bạn có gói trả phí.
 2. **Mở tab Đọc văn bản** và dán kịch bản - hoặc **Nhập từ file** để nạp `.txt` hay `.srt`.
 3. **Chọn cách ngắt câu** (mỗi câu, mỗi dòng, hoặc gộp thông minh theo số ký tự), chọn bộ máy **CapCut** hoặc **Microsoft Edge** và một **giọng**.
 4. Bấm **Tạo tất cả**. Nghe từng đoạn và tạo lại đoạn nào chưa ưng.
