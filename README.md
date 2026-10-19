@@ -34,7 +34,7 @@ Download the latest version from **[Releases](https://github.com/duckmartians/G-
 
 1. Open the **`GLabsVoiceover-<version>-setup.exe`** file you downloaded.
 2. If a **"Windows protected your PC"** box appears (SmartScreen): click **More info** → **Run anyway**. *(The app is not code-signed with a Microsoft certificate, so Windows warns about it - it is not a virus.)*
-3. Follow the installer - you can choose the install folder. It installs for your user account and creates **Start Menu** and **Desktop** shortcuts.
+3. The installer runs on its own (no admin rights, no folder to pick): it installs for your user account, creates **Start Menu** and **Desktop** shortcuts and opens the app when it finishes.
 4. Open **G-Labs Voiceover** from the Start Menu or the Desktop shortcut.
 
 </details>
@@ -138,7 +138,14 @@ Paste proxies in any format (`host:port:user:pass`, `user:pass@host:port`, `sock
 
 ![Webhook API](docs/screenshots/07-webhook.png)
 
-Start the server in the **Webhook API** tab (or tick **Auto-start server when app launches**) and Voiceover runs a small local HTTP server (default `127.0.0.1:8788`) that your own tools - or an AI agent - can call:
+Turn Voiceover into a local automation server. The tab has the same blocks as G-Labs Studio:
+
+- **Server Control**: IP (`127.0.0.1` = this computer only, `0.0.0.0` or a LAN IP = other machines on your network), port (default `8788`), URL with a copy button, **Start Server** / **Stop Server**, and **Auto-start server when app launches**. IP and port are locked while the server runs.
+- **API Key**: send it as the `X-API-Key` header (or `Authorization: Bearer`). **Generate** makes a new key and the old one stops working at once; **Copy** copies it.
+- **Result storage**: audio made through the webhook is saved in its own folder (`<save folder>/audio`), with disk usage, auto-delete for files older than 1 / 3 / 7 / 14 / 30 days and a **Clean up** button that only touches that subfolder.
+- **Quick Start Guide**: 5 steps from getting a key to downloading the result, plus an **Open the webhook documentation** button to hand to an AI agent.
+
+Start the server, then call it from your own tools:
 
 ```bash
 curl -X POST http://127.0.0.1:8788/api/tts \

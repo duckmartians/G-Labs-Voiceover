@@ -34,7 +34,7 @@ Tải bản mới nhất từ **[Releases](https://github.com/duckmartians/G-Lab
 
 1. Mở tệp **`GLabsVoiceover-<phiên-bản>-setup.exe`** vừa tải.
 2. Nếu hiện bảng **"Windows protected your PC"** (SmartScreen): bấm **More info** → **Run anyway**. *(App chưa mua chứng chỉ ký của Microsoft nên bị cảnh báo - không phải virus.)*
-3. Làm theo trình cài đặt - bạn chọn được thư mục cài. App cài cho tài khoản người dùng hiện tại và tạo lối tắt ở **Start Menu** và **Desktop**.
+3. Bộ cài tự chạy (không cần quyền admin, không phải chọn thư mục): cài cho tài khoản người dùng hiện tại, tạo lối tắt ở **Start Menu** và **Desktop** rồi tự mở app khi cài xong.
 4. Mở **G-Labs Voiceover** từ Start Menu hoặc lối tắt trên Desktop.
 
 </details>
@@ -138,7 +138,14 @@ Dán proxy đủ định dạng (`host:port:user:pass`, `user:pass@host:port`, `
 
 ![Webhook API](docs/screenshots/07-webhook.png)
 
-Bấm **Khởi động** ở tab **Webhook API** (hoặc tích **Tự động khởi động server khi mở app**), Voiceover chạy một máy chủ HTTP cục bộ nhỏ (mặc định `127.0.0.1:8788`) để công cụ của bạn - hoặc một AI agent - gọi:
+Biến Voiceover thành máy chủ tự động hoá cục bộ. Tab có các khối giống G-Labs Studio:
+
+- **Điều khiển Server**: IP (`127.0.0.1` = chỉ máy này, `0.0.0.0` hoặc IP LAN = máy khác trong mạng gọi được), cổng (mặc định `8788`), URL kèm nút sao chép, **Khởi động** / **Dừng Server**, và **Tự động khởi động server khi mở app**. Khi server đang chạy thì IP và cổng bị khoá.
+- **Khóa API**: gửi kèm header `X-API-Key` (hoặc `Authorization: Bearer`). **Tạo** đổi khoá mới, khoá cũ hết tác dụng ngay; **Sao chép** để chép khoá.
+- **Lưu trữ kết quả**: âm thanh tạo qua webhook lưu ở thư mục riêng (`<thư mục lưu>/audio`), có dung lượng đang dùng, tự xoá file cũ hơn 1 / 3 / 7 / 14 / 30 ngày và nút **Dọn dẹp** chỉ đụng tới thư mục con đó.
+- **Hướng dẫn sử dụng**: 5 bước từ lấy khoá tới tải kết quả, kèm nút **Mở tài liệu webhook** để gửi cho AI agent.
+
+Bật server rồi gọi từ công cụ của bạn:
 
 ```bash
 curl -X POST http://127.0.0.1:8788/api/tts \
