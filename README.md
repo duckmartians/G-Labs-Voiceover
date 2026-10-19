@@ -138,7 +138,7 @@ Paste proxies in any format (`host:port:user:pass`, `user:pass@host:port`, `sock
 
 ![Webhook API](docs/screenshots/07-webhook.png)
 
-Enable the **Webhook API** tab and Voiceover runs a small local HTTP server (default `127.0.0.1:8788`) that your own tools - or an AI agent - can call:
+Start the server in the **Webhook API** tab (or tick **Auto-start server when app launches**) and Voiceover runs a small local HTTP server (default `127.0.0.1:8788`) that your own tools - or an AI agent - can call:
 
 ```bash
 curl -X POST http://127.0.0.1:8788/api/tts \
@@ -162,7 +162,7 @@ The interface switches between 11 languages; Urdu (اردو) uses a full right-t
 | What | macOS | Windows |
 |---|---|---|
 | Settings, script draft, proxy list, webhook key (`prefs.json`), sign-in session and device ID | `~/Library/Application Support/G-Labs Voiceover` | `%APPDATA%\G-Labs Voiceover` |
-| Webhook output files | `$TMPDIR/voiceover-webhook-files` | `%TEMP%\voiceover-webhook-files` |
+| Webhook output files (change it in the Webhook API tab, **Result storage**) | `~/Documents/G-Labs Voiceover/output/webhook/audio` | `%USERPROFILE%\Documents\G-Labs Voiceover\output\webhook\audio` |
 
 Your text is sent to the CapCut or Microsoft Edge voice service (through your proxies if configured) to be spoken. The G-Labs license server is used only to sign in and check access.
 

@@ -13,7 +13,8 @@ G-Labs Voiceover turns text into natural voice-over using two engines:
 - **`edge`** - Microsoft Edge read-aloud neural voices (~322 voices, many locales).
 - **`capcut`** - CapCut TTS voices (~121 voices).
 
-When you enable the **Webhook API** tab in the app, Voiceover starts a **separate
+When the user starts the server in the app's **Webhook API** tab (**Server Control** →
+**Start Server**, or ticks **Auto-start server when app launches**), Voiceover runs a **separate
 local HTTP server** (default `http://127.0.0.1:8788`) that you drive from your own
 tools. Core ideas:
 
@@ -202,8 +203,11 @@ Each entry: `{ name, url, type, role, index? }`.
 | `segment` | when `perSegment: true` | One `.mp3` per segment; `index` is its 1-based position. |
 | `srt` | when `srt: true` | A `.srt` subtitle file whose cues match the master's timeline. |
 
-Files live in a temp directory and are served by `GET /api/files/{name}`. Download
-what you need soon after completion; don't rely on them persisting across restarts.
+Files are saved in the webhook's result folder - `<save folder>/audio`, default
+`Documents/G-Labs Voiceover/output/webhook/audio`, chosen in the tab's **Result storage**
+block - and served by `GET /api/files/{name}`. They persist across restarts until the user
+clicks **Clean up** or the optional auto-delete (files older than N days) removes them;
+links to deleted files return `404`. Download what you need rather than relying on the link.
 
 ---
 
@@ -266,5 +270,5 @@ echo "$S" | python3 -c "import sys,json;[print(f['url']) for f in json.load(sys.
   `master.mp3` (and, with `srt`, aligned subtitles).
 - **Handle 403.** It means the human needs to sign in with an entitled account in the
   app; there is no API-side workaround.
-- **The server may be off.** If requests fail to connect, the user has not enabled
-  the Webhook API tab, or bound it to a different host/port - ask them to check.
+- **The server may be off.** If requests fail to connect, the user has not started
+  the server in the Webhook API tab, or bound it to a different IP/port - ask them to check.

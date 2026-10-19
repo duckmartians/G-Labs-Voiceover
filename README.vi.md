@@ -138,7 +138,7 @@ Dán proxy đủ định dạng (`host:port:user:pass`, `user:pass@host:port`, `
 
 ![Webhook API](docs/screenshots/07-webhook.png)
 
-Bật tab **Webhook API**, Voiceover chạy một máy chủ HTTP cục bộ nhỏ (mặc định `127.0.0.1:8788`) để công cụ của bạn - hoặc một AI agent - gọi:
+Bấm **Khởi động** ở tab **Webhook API** (hoặc tích **Tự động khởi động server khi mở app**), Voiceover chạy một máy chủ HTTP cục bộ nhỏ (mặc định `127.0.0.1:8788`) để công cụ của bạn - hoặc một AI agent - gọi:
 
 ```bash
 curl -X POST http://127.0.0.1:8788/api/tts \
@@ -162,7 +162,7 @@ Giao diện đổi được giữa 11 ngôn ngữ; tiếng Urdu (اردو) dùng
 | Gì | macOS | Windows |
 |---|---|---|
 | Thiết lập, bản nháp kịch bản, danh sách proxy, khoá webhook (`prefs.json`), phiên đăng nhập và mã thiết bị | `~/Library/Application Support/G-Labs Voiceover` | `%APPDATA%\G-Labs Voiceover` |
-| File đầu ra của Webhook | `$TMPDIR/voiceover-webhook-files` | `%TEMP%\voiceover-webhook-files` |
+| File đầu ra của Webhook (đổi được ở tab Webhook API, khối **Lưu trữ kết quả**) | `~/Documents/G-Labs Voiceover/output/webhook/audio` | `%USERPROFILE%\Documents\G-Labs Voiceover\output\webhook\audio` |
 
 Văn bản của bạn được gửi tới dịch vụ giọng CapCut hoặc Microsoft Edge (qua proxy nếu bạn đã cài) để đọc. Máy chủ giấy phép G-Labs chỉ dùng để đăng nhập và kiểm tra quyền dùng.
 
