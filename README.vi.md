@@ -33,7 +33,7 @@ Tải bản mới nhất từ **[Releases](https://github.com/duckmartians/G-Lab
 <summary><b>🪟 Trên Windows</b></summary>
 
 1. Mở tệp **`G-Labs-Voiceover-setup.exe`** vừa tải.
-2. Nếu hiện bảng **"Windows protected your PC"** (SmartScreen): bấm **More info** → **Run anyway**. *(App chưa mua chứng chỉ ký của Microsoft nên bị cảnh báo - không phải virus.)*
+2. Bộ cài đã ký số, nhà phát hành **DUCKMARTIANS**. Nếu bản mới vẫn hiện bảng **"Windows protected your PC"** (SmartScreen), kiểm tra nhà phát hành là DUCKMARTIANS rồi bấm **More info** → **Run anyway**.
 3. Bộ cài tự chạy (không cần quyền admin, không phải chọn thư mục): cài cho tài khoản người dùng hiện tại, tạo lối tắt ở **Start Menu** và **Desktop** rồi tự mở app khi cài xong.
 4. Mở **G-Labs Voiceover** từ Start Menu hoặc lối tắt trên Desktop.
 
@@ -185,7 +185,7 @@ Văn bản của bạn được gửi tới dịch vụ giọng CapCut hoặc Mi
 
 **CapCut ngừng tạo hoặc báo hết lượt** - CapCut giới hạn số lượt mỗi phiên. Chuyển bộ máy sang **Microsoft Edge** (không giới hạn), hoặc thêm proxy trong **Cài đặt**.
 
-**Windows chặn ở "Windows protected your PC"** - bấm **More info → Run anyway**. App chưa mua chứng chỉ ký nên bị cảnh báo, không phải virus.
+**Windows hiện bảng "Windows protected your PC"** - bộ cài đã ký số DUCKMARTIANS, nhưng SmartScreen vẫn có thể cảnh báo với bản vừa phát hành. Kiểm tra nhà phát hành là DUCKMARTIANS rồi bấm **More info → Run anyway**.
 
 **macOS báo ứng dụng bị hỏng / không mở được** - app chưa được Apple ký. Chuột phải → **Open** ở lần đầu, hoặc chạy `xattr -dr com.apple.quarantine "/Applications/G-Labs Voiceover.app"`.
 

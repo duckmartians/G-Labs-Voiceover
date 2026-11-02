@@ -33,7 +33,7 @@ Download the latest version from **[Releases](https://github.com/duckmartians/G-
 <summary><b>🪟 On Windows</b></summary>
 
 1. Open the **`G-Labs-Voiceover-setup.exe`** file you downloaded.
-2. If a **"Windows protected your PC"** box appears (SmartScreen): click **More info** → **Run anyway**. *(The app is not code-signed with a Microsoft certificate, so Windows warns about it - it is not a virus.)*
+2. The installer is digitally signed by **DUCKMARTIANS**. If **"Windows protected your PC"** (SmartScreen) still appears for a brand-new version, check that the publisher shows DUCKMARTIANS, then click **More info** → **Run anyway**.
 3. The installer runs on its own (no admin rights, no folder to pick): it installs for your user account, creates **Start Menu** and **Desktop** shortcuts and opens the app when it finishes.
 4. Open **G-Labs Voiceover** from the Start Menu or the Desktop shortcut.
 
@@ -185,7 +185,7 @@ Your text is sent to the CapCut or Microsoft Edge voice service (through your pr
 
 **CapCut stops generating or says the quota is used up** - CapCut limits requests per session. Switch the engine to **Microsoft Edge** (no quota), or add proxies in **Settings**.
 
-**Windows blocks it with "Windows protected your PC"** - click **More info → Run anyway**. The app is not code-signed, so Windows warns about it; it is not a virus.
+**Windows shows "Windows protected your PC"** - the installer is digitally signed by DUCKMARTIANS, but SmartScreen can still warn about a version that was just released. Check that the publisher is DUCKMARTIANS, then click **More info → Run anyway**.
 
 **macOS says the app is damaged / can't be opened** - it is not signed by Apple. Right-click → **Open** the first time, or run `xattr -dr com.apple.quarantine "/Applications/G-Labs Voiceover.app"`.
 
