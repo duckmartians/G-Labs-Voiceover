@@ -8,8 +8,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/duckmartians/G-Labs-Voiceover/releases/latest"><img alt="Download for Windows" src="https://img.shields.io/badge/Download-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white"></a>&nbsp;
-  <a href="https://github.com/duckmartians/G-Labs-Voiceover/releases/latest"><img alt="Download for macOS (Apple Silicon)" src="https://img.shields.io/badge/Download-macOS%20Apple%20Silicon-000000?style=for-the-badge&logo=apple&logoColor=white"></a>
+  <a href="https://github.com/duckmartians/G-Labs-Voiceover/releases/latest/download/G-Labs-Voiceover-setup.exe"><img alt="Download for Windows" src="https://img.shields.io/badge/Download-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white"></a>&nbsp;
+  <a href="https://github.com/duckmartians/G-Labs-Voiceover/releases/latest/download/G-Labs-Voiceover-mac-arm64.dmg"><img alt="Download for macOS (Apple Silicon)" src="https://img.shields.io/badge/Download-macOS%20Apple%20Silicon-000000?style=for-the-badge&logo=apple&logoColor=white"></a>
 </p>
 
 ---
@@ -22,8 +22,8 @@ Download the latest version from **[Releases](https://github.com/duckmartians/G-
 
 | Your machine | Download file | Note |
 |---|---|---|
-| 🪟 **Windows (64-bit)** | [`GLabsVoiceover-<version>-setup.exe`](https://github.com/duckmartians/G-Labs-Voiceover/releases/latest) | Installer |
-| 🍎 **Mac with Apple chip (M1/M2/M3/M4)** | [`GLabsVoiceover-<version>-arm64.dmg`](https://github.com/duckmartians/G-Labs-Voiceover/releases/latest) | Apple Silicon only |
+| 🪟 **Windows (64-bit)** | [`G-Labs-Voiceover-setup.exe`](https://github.com/duckmartians/G-Labs-Voiceover/releases/latest/download/G-Labs-Voiceover-setup.exe) | Installer |
+| 🍎 **Mac with Apple chip (M1/M2/M3/M4)** | [`G-Labs-Voiceover-mac-arm64.dmg`](https://github.com/duckmartians/G-Labs-Voiceover/releases/latest/download/G-Labs-Voiceover-mac-arm64.dmg) | Apple Silicon only |
 
 > There is **no Intel Mac build** - the `arm64` file will not open on an Intel Mac.
 
@@ -32,7 +32,7 @@ Download the latest version from **[Releases](https://github.com/duckmartians/G-
 <details open>
 <summary><b>🪟 On Windows</b></summary>
 
-1. Open the **`GLabsVoiceover-<version>-setup.exe`** file you downloaded.
+1. Open the **`G-Labs-Voiceover-setup.exe`** file you downloaded.
 2. If a **"Windows protected your PC"** box appears (SmartScreen): click **More info** → **Run anyway**. *(The app is not code-signed with a Microsoft certificate, so Windows warns about it - it is not a virus.)*
 3. The installer runs on its own (no admin rights, no folder to pick): it installs for your user account, creates **Start Menu** and **Desktop** shortcuts and opens the app when it finishes.
 4. Open **G-Labs Voiceover** from the Start Menu or the Desktop shortcut.

@@ -8,8 +8,8 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/duckmartians/G-Labs-Voiceover/releases/latest"><img alt="Tải về cho Windows" src="https://img.shields.io/badge/T%E1%BA%A3i%20v%E1%BB%81-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white"></a>&nbsp;
-  <a href="https://github.com/duckmartians/G-Labs-Voiceover/releases/latest"><img alt="Tải về cho macOS (Apple Silicon)" src="https://img.shields.io/badge/T%E1%BA%A3i%20v%E1%BB%81-macOS%20Apple%20Silicon-000000?style=for-the-badge&logo=apple&logoColor=white"></a>
+  <a href="https://github.com/duckmartians/G-Labs-Voiceover/releases/latest/download/G-Labs-Voiceover-setup.exe"><img alt="Tải về cho Windows" src="https://img.shields.io/badge/T%E1%BA%A3i%20v%E1%BB%81-Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white"></a>&nbsp;
+  <a href="https://github.com/duckmartians/G-Labs-Voiceover/releases/latest/download/G-Labs-Voiceover-mac-arm64.dmg"><img alt="Tải về cho macOS (Apple Silicon)" src="https://img.shields.io/badge/T%E1%BA%A3i%20v%E1%BB%81-macOS%20Apple%20Silicon-000000?style=for-the-badge&logo=apple&logoColor=white"></a>
 </p>
 
 ---
@@ -22,8 +22,8 @@ Tải bản mới nhất từ **[Releases](https://github.com/duckmartians/G-Lab
 
 | Máy của bạn | Tải tệp | Ghi chú |
 |---|---|---|
-| 🪟 **Windows (64-bit)** | [`GLabsVoiceover-<phiên-bản>-setup.exe`](https://github.com/duckmartians/G-Labs-Voiceover/releases/latest) | Bộ cài đặt |
-| 🍎 **Mac chip Apple (M1/M2/M3/M4)** | [`GLabsVoiceover-<phiên-bản>-arm64.dmg`](https://github.com/duckmartians/G-Labs-Voiceover/releases/latest) | Chỉ cho Apple Silicon |
+| 🪟 **Windows (64-bit)** | [`G-Labs-Voiceover-setup.exe`](https://github.com/duckmartians/G-Labs-Voiceover/releases/latest/download/G-Labs-Voiceover-setup.exe) | Bộ cài đặt |
+| 🍎 **Mac chip Apple (M1/M2/M3/M4)** | [`G-Labs-Voiceover-mac-arm64.dmg`](https://github.com/duckmartians/G-Labs-Voiceover/releases/latest/download/G-Labs-Voiceover-mac-arm64.dmg) | Chỉ cho Apple Silicon |
 
 > **Không có bản cho Mac chip Intel** - tệp `arm64` sẽ không mở được trên máy Intel.
 
@@ -32,7 +32,7 @@ Tải bản mới nhất từ **[Releases](https://github.com/duckmartians/G-Lab
 <details open>
 <summary><b>🪟 Trên Windows</b></summary>
 
-1. Mở tệp **`GLabsVoiceover-<phiên-bản>-setup.exe`** vừa tải.
+1. Mở tệp **`G-Labs-Voiceover-setup.exe`** vừa tải.
 2. Nếu hiện bảng **"Windows protected your PC"** (SmartScreen): bấm **More info** → **Run anyway**. *(App chưa mua chứng chỉ ký của Microsoft nên bị cảnh báo - không phải virus.)*
 3. Bộ cài tự chạy (không cần quyền admin, không phải chọn thư mục): cài cho tài khoản người dùng hiện tại, tạo lối tắt ở **Start Menu** và **Desktop** rồi tự mở app khi cài xong.
 4. Mở **G-Labs Voiceover** từ Start Menu hoặc lối tắt trên Desktop.
